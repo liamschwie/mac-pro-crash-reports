@@ -1,0 +1,65 @@
+panic(cpu 12 caller 0xffffff80148e7356): nvme: "3rd party NVMe controller. Loss of MMIO space. Write. fBuiltIn=1 MODEL=ADATA SX8200PNP FW=42BFU6MB CSTS=0xffffffff US[1]=0x0 US[0]=0x5c VID=0x1cc1 DID=0x8201 CRITICAL_WARNING=0x0.\n" @IONVMeController.cpp:6153
+Panicked task 0xffffff8b8c2f19d8: 291 threads: pid 0: kernel_task
+Backtrace (CPU 12), panicked thread: 0xffffff952262e598, Frame : Return Address
+0xfffffff8321a3a80 : 0xffffff8012826481 mach_kernel : _handle_debugger_trap + 0x4b1
+0xfffffff8321a3ad0 : 0xffffff801298bb10 mach_kernel : _kdp_i386_trap + 0x110
+0xfffffff8321a3b10 : 0xffffff801297b0cc mach_kernel : _kernel_trap + 0x55c
+0xfffffff8321a3b90 : 0xffffff80127bf971 mach_kernel : _return_from_trap + 0xc1
+0xfffffff8321a3bb0 : 0xffffff801282676d mach_kernel : _DebuggerTrapWithState + 0x5d
+0xfffffff8321a3ca0 : 0xffffff8012825e13 mach_kernel : _panic_trap_to_debugger + 0x1e3
+0xfffffff8321a3d00 : 0xffffff8012fdb27b mach_kernel : _panic + 0x84
+0xfffffff8321a3df0 : 0xffffff80148e7356 com.apple.iokit.IONVMeFamily : __ZN16IONVMeController18RequestAsyncEventsEj
+0xfffffff8321a3e20 : 0xffffff8012f15a2c mach_kernel : __ZN18IOTimerEventSource15timeoutSignaledEPvS0_ + 0x8c
+0xfffffff8321a3e70 : 0xffffff8012f15946 mach_kernel : __ZN18IOTimerEventSource17timeoutAndReleaseEPvS0_ + 0xc6
+0xfffffff8321a3ea0 : 0xffffff8012881bc8 mach_kernel : _thread_call_delayed_timer + 0x508
+0xfffffff8321a3ee0 : 0xffffff8012882c58 mach_kernel : _thread_call_delayed_timer + 0x1598
+0xfffffff8321a3fa0 : 0xffffff80127bf19e mach_kernel : _call_continuation + 0x2e
+      Kernel Extensions in backtrace:
+         com.apple.iokit.IONVMeFamily(2.1)[ACB69E5A-7CDD-37BE-A604-24607E01A805]@0xffffff80148e0000->0xffffff801490afff
+            dependency: com.apple.driver.AppleMobileFileIntegrity(1.0.5)[F171001F-2B97-3A16-A1AB-7016244B627E]@0xffffff8013eba000->0xffffff8013ef1fff
+            dependency: com.apple.iokit.IOPCIFamily(2.9)[43511668-C040-3FBA-8CD6-25AD6E00FD90]@0xffffff8014b75000->0xffffff8014ba6fff
+            dependency: com.apple.iokit.IOReportFamily(47)[8476E632-A5DB-34EC-A637-30C25D8C1767]@0xffffff8014bb7000->0xffffff8014bb9fff
+            dependency: com.apple.iokit.IOStorageFamily(2.1)[1EEEAAAA-95C2-3606-8488-591BE79DB5B4]@0xffffff8014cab000->0xffffff8014cc1fff
+
+Process name corresponding to current thread (0xffffff952262e598): kernel_task
+Boot args: keepsyms=1 debug=0x100 -lilubetaall ipc_control_port_options=0 -nokcmismatchpanic
+
+Mac OS version:
+23F79
+
+Kernel version:
+Darwin Kernel Version 23.5.0: Wed May  1 20:09:52 PDT 2024; root:xnu-10063.121.3~5/RELEASE_X86_64
+Kernel UUID: 7B071FD2-9FDC-344E-8483-47EC972A105E
+roots installed: 0
+KernelCache slide: 0x0000000012400000
+KernelCache base:  0xffffff8012600000
+Kernel slide:      0x00000000124e4000
+Kernel text base:  0xffffff80126e4000
+__HIB  text base: 0xffffff8012500000
+System model name: MacPro5,1 (Mac-27AD2F918AE68F61)
+System shutdown begun: NO
+Panic diags file available: YES (0x0)
+Hibernation exit count: 0
+
+System uptime in nanoseconds: 294997698007951
+Last Sleep:           absolute           base_tsc          base_nano
+  Uptime  : 0x00010c4c80ffe176
+  Sleep   : 0x0000000000000000 0x0000000000000000 0x0000000000000000
+  Wake    : 0x0000000000000000 0x00000011f5e4ebd5 0x0000000000000000
+Compressor Info: 0% of compressed pages limit (OK) and 0% of segments limit (OK) with 0 swapfiles and OK swap space
+Zone info:
+  Zone map: 0xffffff8053d6a000 - 0xffffffa053d6a000
+  . PGZ   : 0xffffff8053d6a000 - 0xffffff805bd6b000
+  . VM    : 0xffffff805bd6b000 - 0xffffff8527704000
+  . RO    : 0xffffff8527704000 - 0xffffff86c0a37000
+  . GEN0  : 0xffffff86c0a37000 - 0xffffff8b8c3d0000
+  . GEN1  : 0xffffff8b8c3d0000 - 0xffffff9057d69000
+  . GEN2  : 0xffffff9057d69000 - 0xffffff9523702000
+  . GEN3  : 0xffffff9523702000 - 0xffffff99ef09c000
+  . DATA  : 0xffffff99ef09c000 - 0xffffffa053d6a000
+  Metadata: 0xffffffb0b4969000 - 0xffffffb0d4969000
+  Bitmaps : 0xffffffb0d4969000 - 0xffffffb0e0969000
+  Extra   : 0 - 0
+
+
+
